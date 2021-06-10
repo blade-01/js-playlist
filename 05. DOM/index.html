@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document Object Model - DOM</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Document Object Model - DOM</h1>
+      <form id="search-form">
+        <input type="text" placeholder="Search for item" />
+      </form>
+      <ul>
+        <li class="list-item">
+          <span class="name">Item 1</span> <span class="delete">delete</span>
+        </li>
+        <li class="list-item">
+          <span class="name">Item 2</span> <span class="delete">delete</span>
+        </li>
+        <li class="list-item">
+          <span class="name">Item 3</span> <span class="delete">delete</span>
+        </li>
+      </ul>
+      <div>
+        <input type="checkbox" id="hide" />
+        <label for="hide">Hide all items</label>
+      </div>
+      <form id="add-form">
+        <input type="text" placeholder="Add an item" />
+        <input type="submit" value="Add" />
+      </form>
+      <div class="tabbed-contents">
+        <ul class="tabs">
+          <li data-tab="#about">About</li>
+          <li data-tab="#contact">Contact</li>
+        </ul>
+        <div class="panels">
+          <div class="panel active" id="about">
+            <p>About Us</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Aspernatur doloribus cum rem impedit itaque. Doloremque, ea.
+              Laborum qui sunt nesciunt?
+            </p>
+          </div>
+          <div class="panel" id="contact">
+            <p>Contact</p>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Aspernatur doloribus cum rem impedit itaque. Doloremque, ea.
+              Laborum qui sunt nesciunt?
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,134 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 90%;
+  overflow: hidden;
+  margin: auto;
+}
+
+.alert-danger {
+  background: red;
+  color: #ffffff;
+  padding: 0.5rem;
+}
+
+.alert-success {
+  background: rgb(3, 151, 3);
+  color: #ffffff;
+  padding: 0.5rem;
+}
+
+h1 {
+  text-align: center;
+}
+
+ul.tabs {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+ul.tabs li {
+  list-style: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: 0.4s ease;
+  cursor: pointer;
+  background: #f4f4f4;
+}
+
+.panels {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.panels .panel {
+  display: none;
+  border: solid 2px #f4f4f4;
+  border-radius: 5px;
+  padding: 0.5rem;
+}
+
+.panels .panel.active {
+  display: block;
+}
+
+.panels .panel p:first-child {
+  text-transform: uppercase;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+form input:first-child {
+  flex-basis: 100%;
+}
+
+form input {
+  padding: 0.5rem;
+  outline: none;
+  border: solid 1px blueviolet;
+  cursor: pointer;
+  flex-basis: 80%;
+}
+
+form input[type="submit"] {
+  background: blueviolet;
+  color: #f4f4f4;
+  flex-basis: 20%;
+  border-radius: 0 5px 5px 0;
+  text-transform: uppercase;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li.list-item {
+  list-style: none;
+  margin: 0.4rem 0;
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  border-left: solid 5px blueviolet;
+  display: flex;
+  justify-content: space-between;
+}
+
+li.list-item:hover {
+  border-left: solid 5px darkblue;
+}
+
+span.delete {
+  background: blueviolet;
+  border: 3px;
+  color: #f4f4f4;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form input[type="submit"]:hover,
+span.delete:hover {
+  background: darkblue;
+}
+
+form > div {
+  display: block;
+}
+
+@media screen and (min-width: 1000px) {
+  .container {
+    width: 900px;
+  }
+}
