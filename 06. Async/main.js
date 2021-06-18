@@ -170,7 +170,7 @@ function getAjax() {
 
       let output = "";
       for (let family of families) {
-        output += `<ul> 
+        output += `<ul>
                     <li>${family.name}</li>
                     <li>${family.age}</li>
                     <li>${family.status}</li>
@@ -208,4 +208,61 @@ function useFetch() {
       });
       document.querySelector(".result-two").innerHTML = output;
     });
+}
+
+// Playing aroun async
+// ## Getting and outputing data from different APIs
+// Variables
+const getFirst = document.querySelector(".first");
+const getSecond = document.querySelector(".second");
+const form = document.querySelector("form");
+const formInput = document.querySelector(".input");
+
+form.addEventListener("submit", fetchData);
+function fetchData(e) {
+  e.preventDefault();
+  const input = formInput.value;
+  if (input == "blade") {
+    getDatas();
+  } else {
+    console.log("You've got to be kidding me");
+  }
+  formInput.value = "";
+}
+
+// Get Data from db
+function getDatas() {
+  const firstData = fetch("todos/todo.json").then((res) => res.json());
+  const secondData = fetch("todos/blade.json").then((res) => res.json());
+  Promise.all([firstData, secondData]).then((values) => {
+    values.forEach((value) => console.log(value));
+    const output = { firstResponse: values[0], secondResponse: values[1] };
+    // Object Destructuring
+    const { firstResponse, secondResponse } = output;
+    filterData(firstResponse);
+    filterDataSecond(secondResponse);
+  });
+}
+
+// Filter Datas
+function filterDataSecond(seconds) {
+  let output = "";
+  seconds.forEach((second) => {
+    output += `<ul>
+                <li>${second.name}</li>
+                <li>${second.status}</li>
+              </ul>`;
+  });
+  document.querySelector(".second-output").innerHTML = output;
+}
+
+function filterData(filter) {
+  let output = "";
+  filter.forEach((filt) => {
+    output += `<ul>
+                <li>${filt.name}</li>
+                <li>${filt.status}</li>
+              </ul>`;
+  });
+  document.querySelector(".first-output").innerHTML = output;
 }
