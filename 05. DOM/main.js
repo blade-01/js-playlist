@@ -95,39 +95,38 @@ function addToItem(e) {
     "#add-form input[type='text']"
   ).value;
 
-  // Create elements
-  const li = document.createElement("li");
-  const listName = document.createElement("span");
-  const listBtn = document.createElement("span");
-
-  // Set Attribute
-  listBtn.setAttribute("class", "delete");
-  listName.setAttribute("class", "name");
-  li.setAttribute("class", "list-item");
-
-  // Append to document
-  li.appendChild(listName);
-  li.appendChild(listBtn);
-  list.appendChild(li);
-
-  // Add content
-  // Shaun Way
-  // listBtn.textContent = "delete";
-  // listName.textContent = inputValue;
-
-  // Brad Way
-  listName.appendChild(document.createTextNode(inputValue));
-  listBtn.appendChild(document.createTextNode("delete"));
-
-  // innerText pays attention to the styling while textContent does'nt
-
-  // Clear Form
-  document.querySelector("#add-form input[type='text']").value = "";
-
   // Validate
   if (inputValue == "") {
     showAlert("Please fill in the field", "danger");
   } else {
+    // Create elements
+    const li = document.createElement("li");
+    const listName = document.createElement("span");
+    const listBtn = document.createElement("span");
+
+    // Set Attribute
+    listBtn.setAttribute("class", "delete");
+    listName.setAttribute("class", "name");
+    li.setAttribute("class", "list-item");
+
+    // Append to document
+    li.appendChild(listName);
+    li.appendChild(listBtn);
+    list.appendChild(li);
+
+    // Add content
+    // Shaun Way
+    // listBtn.textContent = "delete";
+    // listName.textContent = inputValue;
+
+    // Brad Way
+    listName.appendChild(document.createTextNode(inputValue));
+    listBtn.appendChild(document.createTextNode("delete"));
+
+    // innerText pays attention to the styling while textContent does'nt
+
+    // Clear Form
+    document.querySelector("#add-form input[type='text']").value = "";
     showAlert("Item Added", "success");
   }
 }
@@ -172,7 +171,7 @@ function filterForm(e) {
   items.forEach((item) => {
     const title = item.firstElementChild.textContent;
     if (title.toLowerCase().indexOf(term) != -1) {
-      item.style.display = "block";
+      item.style.display = "";
     } else {
       item.style.display = "none";
     }
