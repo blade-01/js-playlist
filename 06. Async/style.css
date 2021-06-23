@@ -1,7 +1,15 @@
 body {
-  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+  margin: auto;
+}
+
+input {
   padding: 0.5rem 1rem;
-  box-sizing: border-box;
+  margin: 1rem 0;
 }
 
 ul {
@@ -9,7 +17,8 @@ ul {
   display: inline;
 }
 
-li {
+.card {
   background-color: #f4f4f4;
-  padding: 0.5rem;
+  margin: 1rem 0;
+  padding: 1rem;
 }

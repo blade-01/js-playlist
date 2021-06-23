@@ -6,25 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <title>Async</title>
-    <style>
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        width: 80%;
-        margin: auto;
-      }
-      input {
-        padding: 0.5rem 1rem;
-        margin: 1rem 0;
-      }
-      .fetches {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-    </style>
   </head>
   <body>
     <h1>Async</h1>
@@ -38,12 +19,10 @@
     <form action="">
       <input type="text" class="input" placeholder="You've got to type blade" />
     </form>
-    <div class="fetches">
-      <button class="first">Get First Data</button>
-      <button class="first">Get second data</button>
-    </div>
     <div class="first-output"></div>
     <div class="second-output"></div>
+    <input type="text" placeholder="filter list" id="filter" />
+    <div class="cards"></div>
     <script src="main.js"></script>
   </body>
 </html>

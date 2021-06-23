@@ -213,8 +213,6 @@ function useFetch() {
 // Playing aroun async
 // ## Getting and outputing data from different APIs
 // Variables
-const getFirst = document.querySelector(".first");
-const getSecond = document.querySelector(".second");
 const form = document.querySelector("form");
 const formInput = document.querySelector(".input");
 
@@ -230,7 +228,7 @@ function fetchData(e) {
   formInput.value = "";
 }
 
-// Get Data from db
+// Fetching Multiple Data from db
 function getDatas() {
   const firstData = fetch("todos/todo.json").then((res) => res.json());
   const secondData = fetch("todos/blade.json").then((res) => res.json());
@@ -265,4 +263,48 @@ function filterData(filter) {
               </ul>`;
   });
   document.querySelector(".first-output").innerHTML = output;
+}
+
+// Practice Two
+document.addEventListener("DOMContentLoaded", fetchMe);
+function fetchMe() {
+  fetch("todos/todo.json")
+    .then((res) => res.json())
+    .then((data) => {
+      let output = "";
+      data.forEach((dat) => {
+        output += `<div class="card">
+                    <ul>
+                      <li>${dat.name}</li>
+                      <li>${dat.age}</li>
+                    </ul>
+                  </div>`;
+      });
+      document.querySelector(".cards").innerHTML = output;
+      showMore();
+    });
+}
+
+function showMore() {
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card) => {
+    card.addEventListener("click", () => {
+      console.log(card.firstElementChild.firstElementChild.textContent);
+    });
+  });
+}
+
+const filterInput = document.querySelector("#filter");
+filterInput.addEventListener("keyup", filter);
+function filter() {
+  const filterValue = filterInput.value.toLowerCase();
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((card) => {
+    const cardLi = card.firstElementChild.firstElementChild.textContent;
+    if (cardLi.toLowerCase().indexOf(filterValue) != -1) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
 }
