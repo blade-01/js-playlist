@@ -170,10 +170,10 @@ function getAjax() {
 
       let output = "";
       for (let family of families) {
-        output += `<ul>
-                    <li>${family.name}</li>
-                    <li>${family.age}</li>
-                    <li>${family.status}</li>
+        output += `<ul class="collection">
+                    <li class="collection-item">${family.name}</li>
+                    <li class="collection-item">${family.age}</li>
+                    <li class="collection-item">${family.status}</li>
                   <ul>`;
       }
       document.querySelector(".result").innerHTML = output;
@@ -200,10 +200,10 @@ function useFetch() {
     .then((data) => {
       let output = "";
       data.forEach((family) => {
-        output += `<ul>
-                    <li>${family.name}</li>
-                    <li>${family.age}</li>
-                    <li>${family.status}</li>
+        output += `<ul class="collection">
+                    <li class="collection-item">${family.name}</li>
+                    <li class="collection-item">${family.age}</li>
+                    <li class="collection-item">${family.status}</li>
                   <ul>`;
       });
       document.querySelector(".result-two").innerHTML = output;
@@ -223,9 +223,22 @@ function fetchData(e) {
   if (input == "blade") {
     getDatas();
   } else {
-    console.log("You've got to be kidding me");
+    showAlert("You've got to type blade fam", "red");
   }
   formInput.value = "";
+}
+
+function showAlert(message, className) {
+  const div = document.createElement("div");
+  div.setAttribute("class", `white-text ${className}`);
+  div.appendChild(document.createTextNode(message));
+  const inputField = document.querySelector(".input-field");
+  const label = document.querySelector(".label");
+  inputField.insertBefore(div, label);
+
+  setTimeout(() => {
+    document.querySelector(`.${className}`).remove();
+  }, 2000);
 }
 
 // Fetching Multiple Data from db
@@ -242,24 +255,24 @@ function getDatas() {
   });
 }
 
-// Filter Datas
+// Output First Data
 function filterDataSecond(seconds) {
   let output = "";
   seconds.forEach((second) => {
-    output += `<ul>
-                <li>${second.name}</li>
-                <li>${second.status}</li>
+    output += `<ul class="collection">
+                <li class="collection-item">${second.name}</li>
+                <li class="collection-item">${second.status}</li>
               </ul>`;
   });
   document.querySelector(".second-output").innerHTML = output;
 }
-
+// Output Second Data
 function filterData(filter) {
   let output = "";
   filter.forEach((filt) => {
-    output += `<ul>
-                <li>${filt.name}</li>
-                <li>${filt.status}</li>
+    output += `<ul class="collection">
+                <li class="collection-item">${filt.name}</li>
+                <li class="collection-item">${filt.status}</li>
               </ul>`;
   });
   document.querySelector(".first-output").innerHTML = output;
@@ -273,12 +286,10 @@ function fetchMe() {
     .then((data) => {
       let output = "";
       data.forEach((dat) => {
-        output += `<div class="card">
-                    <ul>
-                      <li>${dat.name}</li>
-                      <li>${dat.age}</li>
-                    </ul>
-                  </div>`;
+        output += `<ul class="collection fetched-collection">
+                      <li class="collection-item">${dat.name}</li>
+                      <li class="collection-item">${dat.age}</li>
+                    </ul>`;
       });
       document.querySelector(".cards").innerHTML = output;
       showMore();
@@ -286,10 +297,10 @@ function fetchMe() {
 }
 
 function showMore() {
-  const cards = document.querySelectorAll(".card");
+  const cards = document.querySelectorAll(".fetched-collection");
   cards.forEach((card) => {
     card.addEventListener("click", () => {
-      console.log(card.firstElementChild.firstElementChild.textContent);
+      console.log(card.firstElementChild.textContent);
     });
   });
 }
@@ -298,9 +309,9 @@ const filterInput = document.querySelector("#filter");
 filterInput.addEventListener("keyup", filter);
 function filter() {
   const filterValue = filterInput.value.toLowerCase();
-  const cards = document.querySelectorAll(".card");
+  const cards = document.querySelectorAll(".fetched-collection");
   cards.forEach((card) => {
-    const cardLi = card.firstElementChild.firstElementChild.textContent;
+    const cardLi = card.firstElementChild.textContent;
     if (cardLi.toLowerCase().indexOf(filterValue) != -1) {
       card.style.display = "block";
     } else {

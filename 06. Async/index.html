@@ -4,25 +4,47 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
     <title>Async</title>
   </head>
   <body>
-    <h1>Async</h1>
-    <div class="fetches">
-      <button class="btn-1">Get using AJAX</button>
-      <button class="btn-2">Get using Fetch</button>
+    <div class="container">
+      <h1 class="center">Async</h1>
+      <div class="row center">
+        <button class="btn-1 btn cyan waves-effect">Get using AJAX</button>
+        <button class="btn-2 btn blue lighten-1">Get using Fetch</button>
+      </div>
+      <div class="result"></div>
+      <div class="result-two"></div>
+      <!-- Ways to get/filter data from API -->
+      <form>
+        <div class="input-field">
+          <input type="text" class="input" id="name" autocomplete="off" />
+          <label class="active label" for="name"
+            >You've got to type blade</label
+          >
+        </div>
+      </form>
+      <div class="first-output"></div>
+      <div class="second-output"></div>
+      <form>
+        <div class="input-field">
+          <input type="text" id="filter" autocomplete="off" />
+          <label class="active" for="filter">Filter List</label>
+        </div>
+      </form>
+      <!-- Initial Load Content -->
+      <h4 class="center">Initial Load</h4>
+      <!-- Data fetched from db -->
+      <div class="cards"></div>
     </div>
-    <div class="result"></div>
-    <div class="result-two"></div>
-    <!-- Ways to get/filter data from API -->
-    <form action="">
-      <input type="text" class="input" placeholder="You've got to type blade" />
-    </form>
-    <div class="first-output"></div>
-    <div class="second-output"></div>
-    <input type="text" placeholder="filter list" id="filter" />
-    <div class="cards"></div>
+    <!-- Script -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
     <script src="main.js"></script>
   </body>
 </html>
