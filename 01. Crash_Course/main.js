@@ -57,6 +57,31 @@ console.log(method.substring(0, 5));
 console.log(method.substring(0, 5).toUpperCase());
 console.log(method.split(" ")); // Space was used to split "Blade is strong" into an array
 
+// Ways to truncate Text
+function truncateText(text, limit) {
+  const shortened = text.indexOf(" ", limit);
+  if (shortened == -1) return text;
+  return text.substring(0, shortened);
+}
+
+function truncateString(str, num) {
+  if (str.length > num) {
+    let subStr = str.substring(0, num);
+    return subStr + "...";
+  } else {
+    return str;
+  }
+}
+
+function truncateString(str, num) {
+  if (str.length <= num) {
+    return str;
+  }
+  return str.slice(0, num) + "...";
+}
+
+truncateString("A-tisket a-tasket A green and yellow basket", 8);
+
 // Arrays - Variables that hold multiple values
 
 // new - This is a constructor
